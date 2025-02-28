@@ -32,14 +32,20 @@ typedef struct Tile
 
 } Tile;
 
+
+// Function that verifies that the grid made satisifies the adjacency matrix conditions.
 bool validate_adjacency(int grid[ROWS][COLS], int adjacencyMatrix[TILE_COUNT][TILE_COUNT]);
 
+// Function that checks if a block can be placed at the (r,c) position of the grid.
 bool can_place(int grid[ROWS][COLS], int r, int c, Tile tile);
 
+// Function to remove tile, used during recursive backtracking, when the solution arrived at isnt correct.
 void remove_tile(int grid[ROWS][COLS], int r, int c, Tile tile);
 
+// Function that places a block at the (r,c) co-ordinate.
 void place_tile(int grid[ROWS][COLS], int r, int c, Tile tile, int tileNum);
 
+// Recursive backtracking function. Returns true if a valid solution is found.
 bool solve(int grid[ROWS][COLS], Tile tiles[], int tileIndex, int adjacencyMatrix[TILE_COUNT][TILE_COUNT]);
 
 void print_grid(int grid[ROWS][COLS]);
